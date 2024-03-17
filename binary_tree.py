@@ -22,3 +22,16 @@ class BinaryTree:
 
         recursion(node=self, value=value)
 
+    def search(self, value) -> bool:
+
+        def recursion(node: BinaryTree, value) -> bool:
+            if node.root_value == value:
+                return True
+            elif node.right == None and node.left == None:
+                return False
+            elif value < node.root_value:
+                return recursion(node=node.left, value=value)
+            elif value >= node.root_value:
+                return recursion(node=node.right, value=value)
+
+        return recursion(node=self, value=value)
