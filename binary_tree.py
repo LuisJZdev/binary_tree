@@ -3,20 +3,24 @@ class BinaryTree:
         self.root_value = root_value
         self.left = None
         self.right = None
+        self.length = 1 if self.root_value else 0
 
     def add(self, value) -> None:
 
         def recursion(node: BinaryTree, value) -> None:
             if not node.root_value:
                 node.root_value = value
+                node.length = 1
             elif value < node.root_value:
                 if node.left == None:
                     node.left = BinaryTree(root_value=value)
+                    self.length += 1
                 else:
                     recursion(node=node.left, value=value)
             elif value >= node.root_value:
                 if node.right == None:
                     node.right = BinaryTree(root_value=value)
+                    self.length += 1
                 else:
                     recursion(node=node.right, value=value)
 

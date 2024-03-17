@@ -16,5 +16,6 @@ assert tree.search(value=3) == True
 assert tree.search(value=4) == True
 assert tree.search(value=7) == True
 assert tree.search(value=8) == False
+assert tree.length == 6
 
 print("Blues!!!")
