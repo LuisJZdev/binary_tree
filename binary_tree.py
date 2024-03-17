@@ -9,7 +9,6 @@ class BinaryTree:
         def recursion(node: BinaryTree, value) -> None:
             if not node.root_value:
                 node.root_value = value
-                node.length = 1
             elif value < node.root_value:
                 if node.left == None:
                     node.left = BinaryTree(root_value=value)
@@ -26,10 +25,10 @@ class BinaryTree:
     def search(self, value) -> bool:
 
         def recursion(node: BinaryTree, value) -> bool:
-            if node.root_value == value:
-                return True
-            elif node.right == None and node.left == None:
+            if node == None:
                 return False
+            elif node.root_value == value:
+                return True
             elif value < node.root_value:
                 return recursion(node=node.left, value=value)
             elif value >= node.root_value:
@@ -44,7 +43,7 @@ class BinaryTree:
             if node.left:
                 recursion(node=node.left, space=space+1)
 
-            print(" "*space, node.root_value)
+            print("   "*space, node.root_value)
 
             if node.right:
                 recursion(node=node.right, space=space+1)
