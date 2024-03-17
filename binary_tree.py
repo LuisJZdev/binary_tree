@@ -36,3 +36,17 @@ class BinaryTree:
                 return recursion(node=node.right, value=value)
 
         return recursion(node=self, value=value)
+    
+    def show(self) -> None:
+
+        def recursion(node: BinaryTree, space=0) -> None:
+            
+            if node.left:
+                recursion(node=node.left, space=space+1)
+
+            print(" "*space, node.root_value)
+
+            if node.right:
+                recursion(node=node.right, space=space+1)
+        
+        recursion(node=self)
